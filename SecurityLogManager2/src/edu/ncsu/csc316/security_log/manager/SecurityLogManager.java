@@ -1,7 +1,6 @@
 package edu.ncsu.csc316.security_log.manager;
 
 import java.io.IOException;
-import java.text.DecimalFormat;
 
 import edu.ncsu.csc316.security_log.comparator.ARComparator;
 import edu.ncsu.csc316.security_log.comparator.UserComparator;
