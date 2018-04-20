@@ -101,6 +101,7 @@ public class HashTable<E> {
 		
 		// Create a new generic array of double the current capacity
 		m *= 2;
+		n = 0;
 		table = new LinkedAbstractList[m];
 		
 		// Loop through the old hash table grabbing each bucket.
