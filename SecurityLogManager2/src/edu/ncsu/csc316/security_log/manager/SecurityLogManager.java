@@ -175,50 +175,66 @@ public class SecurityLogManager {
         	// If the user was found, start by looping to the right of the index until
         	// the indexed log entry has a different user. Append each of these to the
         	// right of the central string
-        	StringBuilder sbCurr = null;
-        	StringBuilder sbPrev = new StringBuilder();
-        	int i = idx;
-        	LogEntry current = logEntryList.get(i);								
-        	while (current.getUser().equals(userID)) {
-        	     sbPrev.append("   ")
-				  	   .append(current.getTimeStamp().getOriginalString())
-				  	   .append(" - ")
-				  	   .append(current.getAction())
-				  	   .append(" ")
-				  	   .append(current.getResource())
-				  	   .append("\n");
-        		i++;
-        		// Break for out of bounds index
-        		if (i == logEntryList.size()) {
-        			break;
-        		}
-        		current = logEntryList.get(i);
-        	}
+//        	StringBuilder sbCurr = null;
+//        	StringBuilder sbPrev = new StringBuilder();
         	
-        	// Next, loop to the left until a different user is found, appending to
-        	// the left of the above string
-        	i = idx - 1;
-        	current = logEntryList.get(i);
-        	while (current.getUser().equals(userID)) {
-        		sbCurr = new StringBuilder().append("   ")
- 				  	   .append(current.getTimeStamp().getOriginalString())
- 				  	   .append(" - ")
- 				  	   .append(current.getAction())
- 				  	   .append(" ")
- 				  	   .append(current.getResource())
- 				  	   .append("\n");
-        		sbCurr.append(sbPrev.toString());
-        		sbPrev = sbCurr;
-        		i--;
-        		// Break for out of bounds index
-        		if (i == -1) {
-        			break;
+        	sb.append(startStr);
+        	
+        	for (int i = 0; i < logEntryList.size(); i++) {
+        		LogEntry current = logEntryList.get(i);
+        		if (current.getUser().equals(userID)) {
+        			sb.append("   ")
+				      .append(current.getTimeStamp().getOriginalString())
+				      .append(" - ")
+				      .append(current.getAction())
+				      .append(" ")
+				      .append(current.getResource())
+				      .append("\n");
         		}
-        		current = logEntryList.get(i);
         	}
+//        	int i = idx;
+//        	LogEntry current = logEntryList.get(i);								
+//        	while (current.getUser().equals(userID)) {
+//        	     sbPrev.append("   ")
+//				  	   .append(current.getTimeStamp().getOriginalString())
+//				  	   .append(" - ")
+//				  	   .append(current.getAction())
+//				  	   .append(" ")
+//				  	   .append(current.getResource())
+//				  	   .append("\n");
+//        		i++;
+//        		// Break for out of bounds index
+//        		if (i == logEntryList.size()) {
+//        			break;
+//        		}
+//        		current = logEntryList.get(i);
+//        	}
+//        	
+//        	// Next, loop to the left until a different user is found, appending to
+//        	// the left of the above string
+//        	i = idx - 1;
+//        	current = logEntryList.get(i);
+//        	while (current.getUser().equals(userID)) {
+//        		sbCurr = new StringBuilder().append("   ")
+// 				  	   .append(current.getTimeStamp().getOriginalString())
+// 				  	   .append(" - ")
+// 				  	   .append(current.getAction())
+// 				  	   .append(" ")
+// 				  	   .append(current.getResource())
+// 				  	   .append("\n");
+//        		sbCurr.append(sbPrev.toString());
+//        		sbPrev = sbCurr;
+//        		i--;
+//        		// Break for out of bounds index
+//        		if (i == -1) {
+//        			break;
+//        		}
+//        		current = logEntryList.get(i);
+//        	}
         	// Add the framing around the output
-            sb.append(startStr).append(sbPrev.toString()).append(endStr);
+//            sb.append(startStr).append(sbPrev.toString()).append(endStr);
         	// Return the output
+        	sb.append(endStr);
             return sb.toString();
         }
         
