@@ -231,7 +231,10 @@ public class ArrayList<E extends Comparable<? super E>> {
     /**
      * Searches for an element in the list
      * Precondition: Only functions properly if the list is maintained in sorted order
+     * 
      * @param e the element to search for
+     * @param c the comparator to use
+     * 
      * @return the index of the element, or -1 if not found
      */
     public int contains(E e, Comparator<E> c) {
@@ -242,11 +245,12 @@ public class ArrayList<E extends Comparable<? super E>> {
         }
     }
     
-    // TODO: Update to use comparators and find the first instance of e in the list, update tests
-    
     /**
      * Recursive binary search utilized by contains()
+     * 
      * @param e the element to search for
+     * @param c the comparator to use
+     * 
      * @return the index of the specified element if it is in the list, -1 if it isn't found.
      */
     private int binarySearch(E e, int low, int high, Comparator<E> c) {
@@ -269,12 +273,10 @@ public class ArrayList<E extends Comparable<? super E>> {
         }
     }
     
-    // TODO: update to use comparator, update tests
-    
     /**
      * Sorts the list in ascending order
      * 
-     * @param c
+     * @param c the comparator that defines the natural ordering to sort by
      */
     public void sort(Comparator<E> c)  {
         quickSort(c, 0, this.size - 1);
@@ -283,8 +285,11 @@ public class ArrayList<E extends Comparable<? super E>> {
     /**
      * A recursive quick sort algorithm.
      * Source of algorithm explanation: https://www.cp.eng.chula.ac.th/~vishnu/datastructure/QuickSort.pdf
+     * 
+     * 
      * @param low the lowest index of the subarray
      * @param high the highest index of the subarray
+     * @param c the comparator to use
      */
     private void quickSort(Comparator<E> c, int low, int high) {
         // Base case 1: sub array with fewer than two elements

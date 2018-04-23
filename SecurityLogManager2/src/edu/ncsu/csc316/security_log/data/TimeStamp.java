@@ -2,17 +2,19 @@ package edu.ncsu.csc316.security_log.data;
 
 /**
  * A class that represents a time stamp of the form "mm/dd/yyyy hh:mm:ssXX", XX = AM | PM
+ * 
  * @author Noah Benveniste
  */
 public class TimeStamp implements Comparable<TimeStamp> {
 	
-	/** */
+	/** The original mm/dd/yyyy hh:mm:ss time stamp string */
     private String originalString;
-    /** */
+    /** The long int that the original string is converted into */
     private long val;
     
     /**
      * Parses a time stamp string into a single long integer
+     * 
      * @param s of the form "mm/dd/yyyy hh:mm:ssXX", XX = AM | PM
      */
     public TimeStamp( String s ) {
@@ -66,6 +68,7 @@ public class TimeStamp implements Comparable<TimeStamp> {
 
     /**
      * Gets the original time stamp string
+     * 
      * @return the original string
      */
     public String getOriginalString() {
@@ -74,12 +77,15 @@ public class TimeStamp implements Comparable<TimeStamp> {
 
     /**
      * Compares two time stamps
+     * 
      * @param other the time stamp to compare to
+     * 
      * @return a negative value if this time came before the other time,
-     * positive if vice versa, zero if they are the same time
+     * 		   positive if vice versa, zero if they are the same time
      */
     @Override
     public int compareTo( TimeStamp other ) {
+    	
         long result =  this.val - other.getVal();
         if (result < 0) {
             return -1;
@@ -88,34 +94,7 @@ public class TimeStamp implements Comparable<TimeStamp> {
         } else {
             return 0;
         }
+        
     }
-
-//    /* (non-Javadoc)
-//	 * @see java.lang.Object#hashCode()
-//	 */
-//	@Override
-//	public int hashCode() {
-//		final int prime = 31;
-//		int result = 1;
-//		result = prime * result + (int) (val ^ (val >>> 32));
-//		return result;
-//	}
-//
-//	/* (non-Javadoc)
-//	 * @see java.lang.Object#equals(java.lang.Object)
-//	 */
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-//		TimeStamp other = (TimeStamp) obj;
-//		if (val != other.val)
-//			return false;
-//		return true;
-//	}
-
+    
 }

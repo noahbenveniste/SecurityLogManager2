@@ -19,8 +19,6 @@ public class LinkedAbstractList<E> {
 	/**
 	 * Constructs a LinkedAbstractList object of a specified capacity.
 	 * 
-	 * @param capacity the maximum number of elements that the list can hold
-	 * 
 	 * @throws IllegalArgumentException if the capacity is less than zero or less than the current list's size
 	 */
 	public LinkedAbstractList() {
@@ -136,9 +134,13 @@ public class LinkedAbstractList<E> {
 	
 	/**
 	 * Gets the element in the list at a specified index
+	 * 
+	 * @param idx the index to get the element at
+	 * 
 	 * @return the element at the specified index
+	 * 
 	 * @throws IndexOutOfBoundsException if the specified index is less than zero or greater than
-	 * or equal to the list's size
+	 * 		   or equal to the list's size
 	 */
 	public E get(int idx) {
 		//Check for out of bounds index

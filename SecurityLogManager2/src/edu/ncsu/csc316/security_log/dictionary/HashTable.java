@@ -16,7 +16,7 @@ public class HashTable<E> {
 	/** The inverse of the number phi, used by compression function */
 	private static final double PHI_INVERSE = ((1 + Math.sqrt(5)) / 2) - 1;
 	/** Initialize the table to 2^12; makes golden ratio hashing faster */
-	private static final int INIT_SIZE = 2^14;
+	private static final int INIT_SIZE = 2 ^ 14;
 	/** Load factor threshold at which the table needs to be rehashed */
 	private static final double MAX_LOAD_FACTOR = 0.75;
 	

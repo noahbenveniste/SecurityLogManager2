@@ -386,7 +386,8 @@ public class ArrayListTest {
     /**
      * Tests growArray()
      */
-    @Test
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Test
     public void testGrowArray() {
         ArrayList<Integer> a = new ArrayList<Integer>();
         Class c = a.getClass();
@@ -433,11 +434,12 @@ public class ArrayListTest {
     private class IntComparator implements Comparator<Integer> {
     	
     	/**
+    	 * Compares two integers
     	 * 
-    	 * @param a
-    	 * @param b
+    	 * @param a the first integer
+    	 * @param b the second integer
     	 * 
-    	 * @return
+    	 * @return negative if a < b, positive if a > b, zero if a == b
     	 */
     	@Override
     	public int compareTo(Integer a, Integer b) {
@@ -454,11 +456,12 @@ public class ArrayListTest {
     private class StringComparator implements Comparator<String> {
     	
     	/**
+    	 * Compares two strings alphabetically
     	 * 
-    	 * @param a
-    	 * @param b
+    	 * @param a the first string
+    	 * @param b the second string
     	 * 
-    	 * @return
+		 * @return negative if a < b, positive if a > b, zero if a == b
     	 */
     	public int compareTo(String a, String b) {
     		return a.compareTo(b);

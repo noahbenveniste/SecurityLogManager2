@@ -7,13 +7,14 @@ import org.junit.Test;
 import edu.ncsu.csc316.security_log.data.LogEntry;
 
 /**
+ * Tests ARComparator
  * 
  * @author Noah Benveniste
  */
 public class ARComparatorTest {
 
 	/**
-	 * 
+	 * Tests compareTo()
 	 */
 	@Test
 	public void testCompareTo() {

@@ -16,9 +16,9 @@ import edu.ncsu.csc316.security_log.list.ArrayList;
  */
 public class SecurityLogIO {
 	
-	/** */
+	/** Corresponds to the earliest time read in */
 	public long minTimeStamp;
-	/** */
+	/** The latest time read in */
 	public long maxTimeStamp;
     
     /**
@@ -26,15 +26,15 @@ public class SecurityLogIO {
      * LogEntry objects
      * 
      * @param fileName the name of the file containing log entries
+     * 
      * @return a LogEntryList containing LogEntry objects that correspond to each log
-     * entry in the file. The list is unsorted i.e. in the same order as the file
+     * 		   entry in the file. The list is unsorted i.e. in the same order as the file
+     * 
      * @throws IOException if a line is not formatted properly
      */
     public ArrayList<LogEntry> readLogEntriesFromFile( String fileName ) throws IOException {
     	minTimeStamp = 0;
     	maxTimeStamp = 0;
-    	
-    	// TODO: add some way of determining the minimum and maximum timestamps when doing file io
     	
 //        BufferedReader reader = new BufferedReader(new FileReader(fileName));
 //        ArrayList<LogEntry> list = reader.lines() // add .parallel() to try multi threaded (could be faster)

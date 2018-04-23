@@ -35,7 +35,7 @@ public class SecurityLogManager {
      * 
      * @param fileName the name of the file to read
      * 
-     * @throws IOException if the file is not formatted properly
+     * @throws IllegalArgumentException if the file is not formatted properly
      */
     public SecurityLogManager(String fileName) {
         io = new SecurityLogIO();
@@ -162,8 +162,6 @@ public class SecurityLogManager {
         String endStr = "]";
         
         StringBuilder sb = new StringBuilder();
-        
-        // TODO: optimize this
         
         // If the user was not found by the binary search
         if (idx == -1) {

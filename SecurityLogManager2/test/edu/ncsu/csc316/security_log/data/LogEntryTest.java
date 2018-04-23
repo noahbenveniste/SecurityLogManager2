@@ -5,13 +5,14 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
+ * Tests for LogEntry
  * 
  * @author Noah Benveniste
  */
 public class LogEntryTest {
 
 	/**
-	 * 
+	 * Tests compareTo()
 	 */
 	@Test
 	public void testCompareTo() {

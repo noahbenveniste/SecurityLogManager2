@@ -8,17 +8,17 @@ package edu.ncsu.csc316.security_log.data;
  */
 public class LogEntry implements Comparable<LogEntry> {
 
-	/** */
+	/** The user */
     private String user;
-    /** */
+    /** The action */
     private String action;
-    /** */
+    /** The resource */
     private String resource;
-    /** */
+    /** The timestamp */
     private TimeStamp timeStamp;
-    /** */
+    /** Used to store the entry's hash to avoid redundancy */
     private int hashCode;
-    /** */
+    /** The number of times a log entry with this action/resource is looked up in the hash table */
     private int freq;
     /** Keeps track of the total number of entries over a time interval */
     public static int total = 0;
@@ -76,8 +76,9 @@ public class LogEntry implements Comparable<LogEntry> {
     }
     
     /**
+     * Gets the frequency
      * 
-     * @return
+     * @return the frequency
      */
     public int getFrequency() {
     	return freq;
@@ -141,9 +142,9 @@ public class LogEntry implements Comparable<LogEntry> {
 	/**
 	 * Equals method that compares only action and resource
 	 * 
-	 * @param obj
+	 * @param obj the object to check for equality
 	 * 
-	 * @return
+	 * @return true if they are equal, false if not
 	 */
 	@Override
 	public boolean equals(Object obj) {
